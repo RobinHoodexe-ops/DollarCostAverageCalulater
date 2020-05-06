@@ -1,31 +1,24 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1062
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DCA.cpp", "DCA.cpp\DCA.cpp.vcxproj", "{04609D52-325E-454A-BFA4-74D7E8B913C4}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{04609D52-325E-454A-BFA4-74D7E8B913C4}.Debug|x64.ActiveCfg = Debug|x64
-		{04609D52-325E-454A-BFA4-74D7E8B913C4}.Debug|x64.Build.0 = Debug|x64
-		{04609D52-325E-454A-BFA4-74D7E8B913C4}.Debug|x86.ActiveCfg = Debug|Win32
-		{04609D52-325E-454A-BFA4-74D7E8B913C4}.Debug|x86.Build.0 = Debug|Win32
-		{04609D52-325E-454A-BFA4-74D7E8B913C4}.Release|x64.ActiveCfg = Release|x64
-		{04609D52-325E-454A-BFA4-74D7E8B913C4}.Release|x64.Build.0 = Release|x64
-		{04609D52-325E-454A-BFA4-74D7E8B913C4}.Release|x86.ActiveCfg = Release|Win32
-		{04609D52-325E-454A-BFA4-74D7E8B913C4}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {41577A3C-E5A4-4A4F-BD36-F7762FCE3A7A}
-	EndGlobalSection
-EndGlobal
+#include <iostream>
+#include<vector>
+#include <numeric>
+using namespace std;
+int main()
+{
+	vector<int> Pb;
+	int Pb1;
+	int n;
+	std::cout << "enter total times bought" << endl;
+	cin >> n;
+	std::cout << "type each price point bought and press enter" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> Pb1;
+		Pb.push_back(Pb1);
+	}
+
+	int sum_of_elems;
+	sum_of_elems = accumulate(Pb.rbegin(), Pb.rend(), 0);
+	int dca = sum_of_elems / n;
+	std::cout << "Your dollar cost average is ~ " << dca << endl;
+	return 0;
+}
